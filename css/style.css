@@ -1,4 +1,4 @@
-/* SGDS v1.0 RC1 — fixed 4K canvas, scaled by JavaScript */
+/* SGDS v1.0 RC1a — fixed 4K canvas, top-left anchored scaler */
 * { box-sizing: border-box; }
 
 html, body {
@@ -9,14 +9,13 @@ html, body {
   background: #111;
 }
 
-body { display: grid; place-items: center; }
+body { display: block; }
 
 #viewport {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  display: grid;
-  place-items: center;
+  position: relative;
 }
 
 #canvas {
@@ -24,7 +23,7 @@ body { display: grid; place-items: center; }
   width: 3840px;
   height: 2160px;
   overflow: hidden;
-  transform-origin: center center;
+  transform-origin: top left;
   color: #f8f8f4;
   font-family: Roboto, Arial, sans-serif;
   background: #480002;
@@ -88,8 +87,7 @@ body { display: grid; place-items: center; }
   width: 232px;
   height: 232px;
   transform: translateY(-42px);
-  display: grid;
-  place-items: center;
+  position: relative;
 }
 .cross img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .date {
@@ -329,8 +327,7 @@ body { display: grid; place-items: center; }
 }
 .slide-title {
   height: 100%;
-  display: grid;
-  place-items: center;
+  position: relative;
   font-family: Palatino, "Palatino Linotype", Georgia, serif;
   font-size: 60px;
   color: rgba(255,255,255,.66);

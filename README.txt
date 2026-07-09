@@ -1,6 +1,11 @@
-SGDS v1.0 RC1
+SGDS v1.0 RC1a
 
-Upload the CONTENTS of this folder to the GitHub repository root.
-The repository root should show index.html, css/, js/, assets/, README.txt, and Release Notes.txt.
+Root upload package for GitHub Pages.
+Upload these files/folders to the repository root:
 
-Do not upload this folder as a folder unless you intend to change the GitHub Pages URL.
+index.html
+css/
+js/
+assets/
+README.txt
+Release Notes.txt

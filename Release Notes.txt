@@ -1,24 +1,26 @@
-SGDS v1.0 RC1 — Parish Council Release Candidate
+SGDS v1.0 RC1a
 
-LOCKED / PRESERVED
-- Upper Upcoming Events crawl preserved as the design reference.
-- Burgundy silk background preserved.
-- Church name and upper-left header placement preserved.
+Purpose
+- Parish Council demonstration release.
 
-CHANGED
-- Cross increased slightly for stronger visual presence.
-- Rev. Fr. Voski Galstyan changed to warm gold.
-- Layout foundation changed to a 5-column grid while preserving the 2 / 1 / 2 visual composition.
-- Stewardship panel now reads: Stewardship / Endowment Funds.
-- Stewardship plaque now rotates featured fund entries every 5 seconds with a 0.75-second dissolve.
-- Featured plaque supports memorialized names under the fund name.
-- Stewardship list now uses two-line entries: family/fund name plus fund type.
-- Stewardship and Hokehankist vertical scrolls are seamless continuous loops with no blank restart gap.
-- Hokehankist names enlarged with more spacing.
-- Added one-column Volunteers Needed panel.
-- Bottom Community crawl now includes prayer requests.
+Fixed
+- Corrected the 4K scaler so the stage remains anchored at the top-left instead of relocating to the centered-box position after load.
+- Changed canvas transform origin from center to top-left.
 
-TECHNICAL
-- No eval, no new Function, and no string-based timers.
-- Removed inline image fallback to remain CSP-safe.
-- JavaScript remains static and read-only.
+Included from RC1
+- 5-column layout foundation.
+- Larger Armenian cross.
+- Rev. Fr. Voski Galstyan in warm gold.
+- Upper crawl locked.
+- Stewardship / Endowment Funds module.
+- Featured recognition plaque rotation every 5 seconds with 0.75-second dissolve.
+- Recognition entries formatted with family name and fund type.
+- Support for memorialized names in the plaque.
+- Seamless vertical scrolls for Stewardship and Hokehankist.
+- Volunteer panel.
+- Community crawl with birthdays, anniversaries, and prayer requests.
+
+Upload instructions
+- Upload the contents of this ZIP directly to the GitHub repository root.
+- Do not upload the ZIP file itself.
+- Do not upload the enclosing folder.

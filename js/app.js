@@ -1,10 +1,12 @@
-// SGDS v1.0 RC1 — CSP-safe fixed 4K scaler and display behaviors
+// SGDS v1.0 RC1a — CSP-safe top-left anchored 4K scaler and display behaviors
 (function () {
   const canvas = document.getElementById('canvas');
 
   function scaleCanvas() {
     const scale = Math.min(window.innerWidth / 3840, window.innerHeight / 2160);
     canvas.style.transform = 'scale(' + scale + ')';
+    canvas.style.left = '0px';
+    canvas.style.top = '0px';
   }
 
   function updateClock() {
