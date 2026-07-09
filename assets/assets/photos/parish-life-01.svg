@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#2a120d"/><stop offset="1" stop-color="#7b4b24"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <circle cx="800" cy="290" r="115" fill="#d8b45c" opacity=".45"/>
+  <rect x="210" y="220" width="1180" height="520" rx="18" fill="#fff9ee" opacity=".10"/>
+  <path d="M420 710 C550 540,710 560,800 370 C910 570,1060 540,1190 710" fill="none" stroke="#f1dc94" stroke-width="18" opacity=".55"/>
+  <text x="800" y="455" text-anchor="middle" font-family="Georgia,serif" font-size="72" fill="#fff9ee">Parish Life Photo</text>
+  <text x="800" y="540" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" fill="#fff9ee" opacity=".75">Replace with real St. George photography</text>
+</svg>

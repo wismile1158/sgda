@@ -1,0 +1,10 @@
+SGDS v1.03 Type Scale Correction
+
+Changed
+- Reduced overall typography scale across header, crawls, and panels.
+- Kept three-column layout and contained header structure.
+- Preserved locked v5 background and current panel concepts.
+- Increased vertical breathing room between panels while reducing type weight/scale.
+
+Notes
+- This is a complete folder package, not a patch.

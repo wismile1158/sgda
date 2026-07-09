@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SGDS v1.03 Header Contained</title>
+  <link rel="stylesheet" href="./css/style.css?v=1.03-header-contained" />
+</head>
+<body>
+  <div class="sgds-bg" aria-hidden="true">
+    <div class="base"></div>
+    <div class="folds left"></div>
+    <div class="folds right"></div>
+    <div class="light sweep"></div>
+    <div class="light right-bloom"></div>
+    <div class="light center-breath"></div>
+    <div class="mist"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <main class="sgds-shell" id="sgdsApp">
+    <header class="sgds-header">
+      <section class="header-left" aria-label="Church identity">
+        <h1>St. George Armenian Church</h1>
+        <p>Rev. Fr. Voski Galstyan</p>
+      </section>
+
+      <section class="header-center" aria-label="Church cross">
+        <img src="./assets/cross.png" alt="St. George Armenian Church cross" />
+      </section>
+
+      <section class="header-right" aria-label="Date and time">
+        <div class="date-day" id="dateDay">Sunday</div>
+        <div class="date-full" id="dateFull">July 12, 2026</div>
+        <div class="date-time" id="dateTime">10:42<span>am</span></div>
+      </section>
+    </header>
+
+    <section class="events-crawl crawl-band" aria-label="Parish events">
+      <div class="crawl-track" id="eventsCrawl"></div>
+    </section>
+
+    <section class="panel-grid" aria-label="Main signage panels">
+      <section class="column column-left">
+        <article class="panel announcements-panel">
+          <header class="panel-title"><h2>Announcements</h2></header>
+          <div class="panel-body announcement-list" id="announcementsList"></div>
+        </article>
+
+        <article class="panel hokehankist-panel">
+          <header class="panel-title"><h2>Hokehankist</h2></header>
+          <div class="panel-body hokehankist-body">
+            <div class="liturgical-kicker">In Memory Of</div>
+            <div class="slow-scroll-mask">
+              <div class="slow-scroll-list" id="hokehankistList"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="column column-center">
+        <article class="panel stewardship-panel">
+          <header class="panel-title"><h2>Stewardship</h2></header>
+          <div class="panel-body stewardship-body">
+            <div class="legacy-scroll left" id="legacyNamesLeft"></div>
+            <div class="legacy-scroll right" id="legacyNamesRight"></div>
+            <div class="stewardship-placard">
+              <div class="placard-small">Recent Endowment</div>
+              <div class="placard-name">The Sarkisian Family</div>
+              <div class="placard-sub">In Memory of<br />John Sarkisian</div>
+              <div class="placard-rule"></div>
+              <div class="placard-footer">Supporting Future Generations</div>
+            </div>
+          </div>
+        </article>
+
+        <div class="today-row">
+          <article class="mini-panel">
+            <div class="mini-icon">🤝</div>
+            <div>
+              <h3>Today's Greeter</h3>
+              <p>Aram Karamanoukian</p>
+            </div>
+          </article>
+          <article class="mini-panel">
+            <div class="mini-icon">☕</div>
+            <div>
+              <h3>Coffee Hour Sponsor</h3>
+              <p>The Bedrosian Family</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="column column-right">
+        <article class="panel slideshow-panel">
+          <header class="panel-title"><h2>Parish Life</h2></header>
+          <div class="panel-body slideshow-body">
+            <div class="slide-stage" id="slideStage">
+              <img src="./assets/photos/parish-life-01.svg" alt="Parish life slide" />
+              <div class="slide-caption">Sunday Fellowship • St. George Armenian Church</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel event-spotlight-panel">
+          <header class="panel-title"><h2>Event Spotlight</h2></header>
+          <div class="panel-body spotlight-body">
+            <img src="./assets/photos/event-spotlight.svg" alt="Event spotlight flyer" />
+            <div class="spotlight-copy">
+              <h3>Summer Picnic</h3>
+              <p>Sunday, August 16 after Badarak</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section class="community-crawl crawl-band" aria-label="Community celebrations">
+      <div class="crawl-track" id="communityCrawl"></div>
+    </section>
+  </main>
+
+  <script src="./js/app.js?v=1.03-header-contained"></script>
+</body>
+</html>

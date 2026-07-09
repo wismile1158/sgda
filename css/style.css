@@ -1,0 +1,451 @@
+/*
+  SGDS 1.0 Fixed 4K Canvas
+  Everything is designed on a fixed 3840x2160 stage.
+  JavaScript scales the whole canvas to fit the browser.
+*/
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+#viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+#canvas {
+  position: relative;
+  width: 3840px;
+  height: 2160px;
+  overflow: hidden;
+  transform-origin: center center;
+  color: #f8f8f4;
+  font-family: Roboto, Arial, sans-serif;
+  background: #480002;
+}
+
+/* Background */
+.bg,
+.bg > div {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-base {
+  background:
+    radial-gradient(circle at 32% 54%, rgba(137,1,1,.95), rgba(94,1,4,.84) 40%, transparent 72%),
+    radial-gradient(circle at 76% 48%, rgba(137,1,1,.85), rgba(94,1,4,.72) 36%, transparent 68%),
+    linear-gradient(135deg, #3b0010, #480002 55%, #150006);
+}
+
+.bg-soft {
+  inset: -20%;
+  filter: blur(70px);
+  mix-blend-mode: screen;
+}
+
+.bg-a {
+  opacity: .13;
+  background:
+    radial-gradient(ellipse at 20% 42%, rgba(255,225,170,.18), transparent 45%),
+    radial-gradient(ellipse at 54% 72%, rgba(255,255,255,.07), transparent 42%);
+  animation: bgA 154s ease-in-out infinite alternate;
+}
+
+.bg-b {
+  opacity: .18;
+  background:
+    radial-gradient(ellipse at 76% 42%, rgba(255,230,175,.18), transparent 45%),
+    radial-gradient(ellipse at 88% 64%, rgba(255,255,255,.08), transparent 40%);
+  animation: bgB 141s ease-in-out infinite alternate;
+}
+
+.bg-light {
+  inset: -30%;
+  opacity: .20;
+  filter: blur(90px);
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(circle at 28% 55%, rgba(216,180,92,.32), transparent 46%),
+    radial-gradient(circle at 82% 48%, rgba(216,180,92,.40), transparent 48%);
+  animation: lightMove 120s ease-in-out infinite;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  top: 70px;
+  height: 245px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.church {
+  justify-self: start;
+  padding-left: 34px;
+}
+
+.church-name {
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -1.4px;
+  white-space: nowrap;
+}
+
+.priest {
+  margin-top: 28px;
+  font-size: 28px;
+  font-weight: 300;
+  color: rgba(248,248,244,.78);
+}
+
+.cross {
+  width: 210px;
+  height: 210px;
+  transform: translateY(-40px);
+  display: grid;
+  place-items: center;
+}
+
+.cross img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.date {
+  justify-self: end;
+  margin-right: 34px;
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  text-align: left;
+  line-height: 1.05;
+}
+
+.day { font-size: 36px; }
+.full-date { margin-top: 14px; font-size: 48px; }
+.time { margin-top: 16px; font-family: Roboto, Arial, sans-serif; font-size: 30px; font-weight: 300; color: #f1dc94; }
+.time span { font-size: 15px; margin-left: 2px; }
+
+/* Crawls */
+.crawl {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  height: 54px;
+  border-top: 2px solid rgba(255,255,255,.74);
+  border-bottom: 2px solid rgba(255,255,255,.74);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+.top-crawl { top: 350px; }
+.bottom-crawl { bottom: 54px; }
+
+.crawl-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  min-width: max-content;
+  animation: crawl 52s linear infinite;
+}
+
+.crawl b {
+  color: #d8b45c;
+  font-weight: 500;
+}
+
+.flag {
+  display: inline-block;
+  width: 16px;
+  height: 8px;
+  background: #d8b45c;
+  border-radius: 70% 18% 65% 25%;
+  transform: rotate(-12deg) skewX(-10deg);
+}
+
+.flag.small {
+  width: 14px;
+  height: 7px;
+  margin-right: 18px;
+  vertical-align: 5px;
+}
+
+/* Main grid */
+.grid {
+  position: absolute;
+  left: 150px;
+  right: 150px;
+  top: 455px;
+  bottom: 135px;
+  display: grid;
+  grid-template-columns: 1.02fr .72fr 1.02fr;
+  gap: 86px;
+}
+
+.col {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  gap: 34px;
+}
+
+.left { grid-template-rows: 1.15fr .85fr; }
+.center { grid-template-rows: 2.08fr .24fr .28fr; }
+.right { grid-template-rows: 1.13fr .87fr; }
+
+/* Panels */
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding: 42px 38px;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  left: 38px;
+  right: 38px;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255,255,255,.70);
+}
+
+.no-line::after { display: none; }
+
+.panel h2 {
+  margin: 0 0 34px;
+  font-size: 32px;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.88);
+}
+
+.subtitle {
+  margin: -14px 0 32px;
+  text-align: center;
+  color: #d8b45c;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Announcements */
+.announcement { margin-bottom: 48px; }
+.announcement h3 { margin: 0; font-size: 35px; line-height: 1.15; }
+.announcement p { margin: 18px 0 0 42px; font-size: 30px; line-height: 1.32; color: rgba(248,248,244,.78); font-weight: 300; }
+
+/* Hokehankist */
+.hokehankist h2 { margin-bottom: 12px; }
+.hokehankist .subtitle { margin-top: 0; }
+
+.memory-window {
+  height: calc(100% - 86px);
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.memory-track { animation: memoryRoll 62s linear infinite; }
+.memory-entry { text-align: center; margin-bottom: 70px; }
+
+.memory-names {
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 40px;
+  line-height: 1.22;
+  color: rgba(255,255,255,.9);
+}
+
+.requested-label {
+  margin-top: 18px;
+  font-size: 21px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.55);
+}
+
+.requested-by {
+  margin-top: 8px;
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 30px;
+  color: rgba(255,255,255,.76);
+}
+
+/* Stewardship */
+.stewardship { text-align: center; padding-top: 36px; }
+.stewardship h2 { margin-bottom: 12px; }
+.stewardship .subtitle { margin-top: 0; margin-bottom: 28px; }
+
+.stew-stage {
+  position: relative;
+  height: 680px;
+  margin-bottom: 20px;
+}
+
+.plaque {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  width: 360px;
+  aspect-ratio: 10 / 6.1;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  padding: 36px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 32% 25%, rgba(255,239,190,.22), transparent 32%),
+    linear-gradient(145deg, #8a6a3d 0%, #6f5636 34%, #4d3b27 100%);
+  border: 2px solid rgba(241,220,148,.48);
+  box-shadow:
+    inset 0 2px 10px rgba(255,255,255,.12),
+    inset 0 -10px 24px rgba(0,0,0,.28),
+    0 18px 42px rgba(0,0,0,.32);
+}
+
+.plaque div {
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 36px;
+  line-height: 1.12;
+  color: #fff3d4;
+  text-shadow: 0 2px 5px rgba(0,0,0,.42);
+}
+
+.stew-scroll {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  top: 235px;
+  bottom: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.stew-scroll::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(94,1,4,.94), rgba(94,1,4,0));
+  z-index: 2;
+}
+
+.stew-track { animation: stewardRoll 28s linear infinite; }
+
+.stew-track p {
+  margin: 0 0 26px;
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 29px;
+  line-height: 1.18;
+  color: rgba(245,234,211,.70);
+}
+
+.endowment {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: rgba(255,255,255,.82);
+  font-weight: 300;
+}
+
+.endowment strong { font-size: 44px; line-height: 1; font-weight: 400; }
+.endowment em { font-size: 22px; color: #f1dc94; font-style: normal; }
+
+/* Today */
+.today {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 22px 30px;
+}
+
+.today h2 { margin-bottom: 12px; color: #d8b45c; font-size: 26px; }
+.kicker { margin-bottom: 8px; font-size: 21px; color: rgba(255,255,255,.58); }
+
+.today-name {
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 32px;
+  line-height: 1.12;
+}
+
+/* Right column */
+.slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 2px solid rgba(255,255,255,.24);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    radial-gradient(circle at 50% 45%, rgba(216,180,92,.18), transparent 55%);
+  overflow: hidden;
+}
+
+.slide-title {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 60px;
+  color: rgba(255,255,255,.66);
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,.58), transparent);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.event-card {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border: 2px solid rgba(216,180,92,.38);
+  padding: 30px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(216,180,92,.20), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+}
+
+.event-kicker { margin-bottom: 20px; color: #d8b45c; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; }
+.event-title { font-family: Palatino, "Palatino Linotype", Georgia, serif; font-size: 50px; line-height: 1.05; }
+.event-date { margin-top: 18px; color: #d8b45c; font-size: 30px; }
+.event-card p { max-width: 24ch; margin: 26px auto 0; font-size: 26px; line-height: 1.25; color: rgba(248,248,244,.78); }
+
+/* Animations */
+@keyframes crawl { from { transform: translateX(3840px); } to { transform: translateX(-100%); } }
+@keyframes stewardRoll { from { transform: translateY(76%); } to { transform: translateY(-68%); } }
+@keyframes memoryRoll { from { transform: translateY(24%); } to { transform: translateY(-72%); } }
+@keyframes bgA { from { transform: translate(-2%,1%) scale(1.06); } to { transform: translate(3%,2%) scale(1.08); } }
+@keyframes bgB { from { transform: translate(2%,-1%) scale(1.08); } to { transform: translate(-4%,-1%) scale(1.10); } }
+@keyframes lightMove { 0%,100% { transform: translate(-4%,1%) scale(1); } 50% { transform: translate(6%,-1%) scale(1.08); } }
