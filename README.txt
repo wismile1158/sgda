@@ -1,16 +1,6 @@
-SGDS 1.0 Fixed 4K Canvas
+SGDS v1.0 RC1
 
-This is a clean fixed-canvas build.
+Upload the CONTENTS of this folder to the GitHub repository root.
+The repository root should show index.html, css/, js/, assets/, README.txt, and Release Notes.txt.
 
-Important:
-- The design stage is always 3840 x 2160.
-- The entire canvas scales as one unit to fit desktop, phone, or the 98-inch 4K display.
-- Nothing rearranges responsively.
-- Replace assets/cross.png with the real cross image.
-- If cross.png is missing, assets/cross.svg will display.
-
-Files:
-- index.html
-- css/style.css
-- js/app.js
-- assets/cross.svg
+Do not upload this folder as a folder unless you intend to change the GitHub Pages URL.

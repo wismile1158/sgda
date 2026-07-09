@@ -1,0 +1,24 @@
+SGDS v1.0 RC1 — Parish Council Release Candidate
+
+LOCKED / PRESERVED
+- Upper Upcoming Events crawl preserved as the design reference.
+- Burgundy silk background preserved.
+- Church name and upper-left header placement preserved.
+
+CHANGED
+- Cross increased slightly for stronger visual presence.
+- Rev. Fr. Voski Galstyan changed to warm gold.
+- Layout foundation changed to a 5-column grid while preserving the 2 / 1 / 2 visual composition.
+- Stewardship panel now reads: Stewardship / Endowment Funds.
+- Stewardship plaque now rotates featured fund entries every 5 seconds with a 0.75-second dissolve.
+- Featured plaque supports memorialized names under the fund name.
+- Stewardship list now uses two-line entries: family/fund name plus fund type.
+- Stewardship and Hokehankist vertical scrolls are seamless continuous loops with no blank restart gap.
+- Hokehankist names enlarged with more spacing.
+- Added one-column Volunteers Needed panel.
+- Bottom Community crawl now includes prayer requests.
+
+TECHNICAL
+- No eval, no new Function, and no string-based timers.
+- Removed inline image fallback to remain CSP-safe.
+- JavaScript remains static and read-only.
