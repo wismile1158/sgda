@@ -1,26 +1,36 @@
-SGDS v1.0 RC1a
+SGDC DISPLAY v1.0 RC2 — PARISH COUNCIL EDITION
 
-Purpose
-- Parish Council demonstration release.
+BRANDING
+- Introduces SGDC: St. George Digital Communications.
+- The display component is SGDC Display.
 
-Fixed
-- Corrected the 4K scaler so the stage remains anchored at the top-left instead of relocating to the centered-box position after load.
-- Changed canvas transform origin from center to top-left.
+HEADER
+- Increased church/priest block indent.
+- Enlarged cross to approximately 130% of RC1 size.
+- Moved day/date/time inward to balance the left side.
+- Increased time size.
+- Converted Upcoming Events to a continuous stream with no dead time.
 
-Included from RC1
-- 5-column layout foundation.
-- Larger Armenian cross.
-- Rev. Fr. Voski Galstyan in warm gold.
-- Upper crawl locked.
-- Stewardship / Endowment Funds module.
-- Featured recognition plaque rotation every 5 seconds with 0.75-second dissolve.
-- Recognition entries formatted with family name and fund type.
-- Support for memorialized names in the plaque.
-- Seamless vertical scrolls for Stewardship and Hokehankist.
-- Volunteer panel.
-- Community crawl with birthdays, anniversaries, and prayer requests.
+PANELS
+- Announcements retained as approved.
+- Stewardship plaque now has one fixed size for every fund.
+- Plaque changes use a clean cut; no flashing, fading, or resizing.
+- Stewardship bottom border removed.
+- Parish Life slideshow reduced 25% and framed on all four sides with a 2px gold line.
+- Added caption space below the slideshow.
+- Today's Service and Hokehankist now share a two-column panel.
+- Hokehankist names reduced to create more vertical room.
+- Volunteers Needed retained and its bottom border removed.
+- Featured Events now rotates several events with a quick cube transition and no border.
+- Community converted to a continuous stream with no dead time.
 
-Upload instructions
-- Upload the contents of this ZIP directly to the GitHub repository root.
-- Do not upload the ZIP file itself.
-- Do not upload the enclosing folder.
+DESIGN SYSTEM FOUNDATION
+- All panel titles use gold.
+- Title color and size are defined as panel variables for future Layout Manager control.
+- Panel borders remain 2px and are applied independently by class.
+- Image framing is separate from panel framing.
+
+SCALING
+- Desktop and television remain anchored and stable.
+- Phone portrait and landscape use proportional fit and centering.
+- No cropping or panel rearrangement on phones.

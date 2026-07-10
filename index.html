@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SGDS v1.0 RC1a</title>
+  <title>SGDC Display v1.0 RC2</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div id="viewport">
     <main id="canvas">
       <div class="bg" aria-hidden="true">
-        <div class="bg-base"></div>
-        <div class="bg-soft bg-a"></div>
-        <div class="bg-soft bg-b"></div>
-        <div class="bg-light"></div>
+        <div class="bg-base"></div><div class="bg-soft bg-a"></div><div class="bg-soft bg-b"></div><div class="bg-light"></div>
       </div>
 
       <header class="header">
@@ -21,11 +18,7 @@
           <div class="church-name">St. George Armenian Church</div>
           <div class="priest">Rev. Fr. Voski Galstyan</div>
         </div>
-
-        <div class="cross">
-          <img src="assets/cross.png" alt="" />
-        </div>
-
+        <div class="cross"><img src="assets/cross.png" alt="" /></div>
         <div class="date">
           <div class="day" id="dayText">Sunday</div>
           <div class="full-date" id="dateText">July 12, 2026</div>
@@ -34,45 +27,36 @@
       </header>
 
       <section class="crawl top-crawl" aria-label="Upcoming Events">
-        <div class="crawl-track">
-          <b>Upcoming Events</b>
-          <span class="flag"></span> Food Festival Meeting • Thursday 7:00 PM
-          <span class="flag"></span> Parish Picnic • Sunday after Badarak
-          <span class="flag"></span> Choir Rehearsal • Wednesday 7:30 PM
-          <span class="flag"></span> Armenian School Registration now open
-          <span class="flag"></span> Women’s Guild meeting after Badarak
+        <div class="crawl-track continuous-x" data-continuous-x="true">
+          <div class="crawl-group">
+            <b>Upcoming Events</b>
+            <span class="flag"></span><span>Food Festival Meeting • Thursday 7:00 PM</span>
+            <span class="flag"></span><span>Parish Picnic • Sunday after Badarak</span>
+            <span class="flag"></span><span>Choir Rehearsal • Wednesday 7:30 PM</span>
+            <span class="flag"></span><span>Armenian School Registration now open</span>
+            <span class="flag"></span><span>Women’s Guild meeting after Badarak</span>
+          </div>
         </div>
       </section>
 
       <section class="grid five-grid">
-        <article class="panel announcements area-announcements">
+        <article class="panel announcements area-announcements border-bottom">
           <h2>Announcements</h2>
-          <div class="announcement">
-            <h3><span class="flag small"></span>Parish Picnic Volunteers</h3>
-            <p>Volunteers are needed for setup, serving, and cleanup after Badarak. Please see a Parish Council member.</p>
-          </div>
-          <div class="announcement">
-            <h3><span class="flag small"></span>Choir Rehearsal</h3>
-            <p>Wednesday evening at 7:30 PM. New voices are always welcome.</p>
-          </div>
-          <div class="announcement">
-            <h3><span class="flag small"></span>Armenian School Registration</h3>
-            <p>Registration forms are available in the church office and online.</p>
-          </div>
+          <div class="announcement"><h3><span class="flag small"></span>Parish Picnic Volunteers</h3><p>Volunteers are needed for setup, serving, and cleanup after Badarak. Please see a Parish Council member.</p></div>
+          <div class="announcement"><h3><span class="flag small"></span>Choir Rehearsal</h3><p>Wednesday evening at 7:30 PM. New voices are always welcome.</p></div>
+          <div class="announcement"><h3><span class="flag small"></span>Armenian School Registration</h3><p>Registration forms are available in the church office and online.</p></div>
         </article>
 
         <article class="panel stewardship area-stewardship">
           <h2>Stewardship</h2>
           <div class="subtitle">Endowment Funds</div>
-
           <div class="stew-stage">
             <div class="plaque" aria-live="polite">
-              <div class="plaque-main" id="plaqueName">John &amp; Mary Sarkisian</div>
-              <div class="plaque-fund" id="plaqueFund">Endowment Fund</div>
+              <div class="plaque-main" id="plaqueName">The Arslanian Family</div>
+              <div class="plaque-fund" id="plaqueFund">Memorial Fund</div>
               <div class="plaque-memory-label" id="plaqueMemoryLabel">In Memory Of</div>
-              <div class="plaque-memory" id="plaqueMemory">Hagop &amp; Siranoush Sarkisian</div>
+              <div class="plaque-memory" id="plaqueMemory">Aram, Mariam &amp; Rose Arslanian</div>
             </div>
-
             <div class="stew-scroll seamless-window">
               <div class="stew-track seamless-track" data-seamless="true">
                 <div class="fund-entry"><div class="fund-name">John &amp; Mary Sarkisian</div><div class="fund-type">Endowment Fund</div></div>
@@ -86,47 +70,35 @@
               </div>
             </div>
           </div>
-
-          <div class="endowment-total">
-            <div>Supporting Future Generations</div>
-            <strong>$438,000</strong>
-            <em>...and growing.</em>
-          </div>
+          <div class="endowment-total"><div>Supporting Future Generations</div><strong>$438,000</strong><em>...and growing.</em></div>
         </article>
 
         <article class="panel slideshow area-slideshow">
           <h2>Parish Life</h2>
           <div class="slide-frame">
             <div class="slide-title">16:9 Slideshow</div>
-            <div class="caption">St. George parish family after Sunday Badarak.</div>
           </div>
+          <div class="slide-caption">St. George parish family after Sunday Badarak.</div>
         </article>
 
-        <article class="panel hokehankist no-line area-hokehankist">
-          <h2>Hokehankist</h2>
-          <div class="subtitle">In Memory Of</div>
-
-          <div class="memory-window seamless-window">
-            <div class="memory-track seamless-track" data-seamless="true">
-              <div class="memory-entry">
-                <div class="memory-names">Anna Bedrosian</div>
-                <div class="requested-label">Requested by</div>
-                <div class="requested-by">John &amp; Mary Bedrosian</div>
-              </div>
-              <div class="memory-entry">
-                <div class="memory-names">George Sarkisian<br>Mary Sarkisian<br>Rose Sarkisian</div>
-                <div class="requested-label">Requested by</div>
-                <div class="requested-by">The Sarkisian Family</div>
-              </div>
-              <div class="memory-entry">
-                <div class="memory-names">Mariam Hagopian</div>
-                <div class="requested-label">Requested by</div>
-                <div class="requested-by">Alice Kevorkian</div>
-              </div>
-              <div class="memory-entry">
-                <div class="memory-names">Edward Deranian<br>Lucy Arslanian</div>
-                <div class="requested-label">Requested by</div>
-                <div class="requested-by">The Deranian Family</div>
+        <article class="panel worship area-hokehankist border-bottom">
+          <div class="service-info">
+            <h2>Today’s Service</h2>
+            <div class="service-name">Eve of the Fast of Transfiguration</div>
+            <div class="readings-title">Scripture Readings</div>
+            <div class="reading">Isaiah 3:1–11</div>
+            <div class="reading">Romans 11:13–24</div>
+            <div class="reading">Matthew 14:13–21</div>
+          </div>
+          <div class="hokehankist-column">
+            <h2>Hokehankist</h2>
+            <div class="subtitle">In Memory Of</div>
+            <div class="memory-window seamless-window">
+              <div class="memory-track seamless-track" data-seamless="true">
+                <div class="memory-entry"><div class="memory-names">Anna Bedrosian</div><div class="requested-label">Requested by</div><div class="requested-by">John &amp; Mary Bedrosian</div></div>
+                <div class="memory-entry"><div class="memory-names">George Sarkisian<br>Mary Sarkisian<br>Rose Sarkisian</div><div class="requested-label">Requested by</div><div class="requested-by">The Sarkisian Family</div></div>
+                <div class="memory-entry"><div class="memory-names">Mariam Hagopian</div><div class="requested-label">Requested by</div><div class="requested-by">Alice Kevorkian</div></div>
+                <div class="memory-entry"><div class="memory-names">Edward Deranian<br>Lucy Arslanian</div><div class="requested-label">Requested by</div><div class="requested-by">The Deranian Family</div></div>
               </div>
             </div>
           </div>
@@ -138,30 +110,36 @@
           <p>Please see a Parish Council member after Badarak.</p>
         </article>
 
-        <article class="panel featured no-line area-featured">
-          <h2>Featured Event</h2>
-          <div class="event-card">
-            <div class="event-kicker">Featured Event</div>
-            <div class="event-title">Annual Parish Picnic</div>
-            <div class="event-date">Sunday, August 2</div>
-            <p>Join us after Badarak for food, fellowship, and family activities.</p>
+        <article class="panel featured area-featured">
+          <h2>Featured Events</h2>
+          <div class="event-rotator" aria-live="polite">
+            <div class="event-card is-current">
+              <div class="event-kicker">Parish Fellowship</div><div class="event-title">Annual Parish Picnic</div><div class="event-date">Sunday, August 2</div><p>Join us after Badarak for food, fellowship, and family activities.</p>
+            </div>
+            <div class="event-card">
+              <div class="event-kicker">Women’s Guild</div><div class="event-title">Summer Luncheon</div><div class="event-date">Saturday, August 15</div><p>Reservations are available through the parish office.</p>
+            </div>
+            <div class="event-card">
+              <div class="event-kicker">Youth Ministry</div><div class="event-title">ACYOA Welcome Night</div><div class="event-date">Friday, September 4</div><p>Young adults and families are invited to begin the new ministry year together.</p>
+            </div>
           </div>
         </article>
       </section>
 
       <footer class="crawl bottom-crawl" aria-label="Community">
-        <div class="crawl-track bottom-track">
-          <b>Community</b>
-          <span>🎂 Happy Birthday, Mary Sarkisian</span>
-          <span>💕 Happy Anniversary, John &amp; Susan</span>
-          <span>🙏 Please keep Der Hayr, Yeretsgin, and all who are ill in your prayers</span>
-          <span>🎓 Congratulations to our graduates</span>
-          <span>🙏 Please keep our homebound parishioners in your prayers</span>
+        <div class="crawl-track continuous-x bottom-track" data-continuous-x="true">
+          <div class="crawl-group">
+            <b>Community</b>
+            <span>🎂 Happy Birthday, Mary Sarkisian</span>
+            <span>💕 Happy Anniversary, John &amp; Susan</span>
+            <span>🙏 Please keep Der Hayr, Yeretsgin, and all who are ill in your prayers</span>
+            <span>🎓 Congratulations to our graduates</span>
+            <span>🙏 Please keep our homebound parishioners in your prayers</span>
+          </div>
         </div>
       </footer>
     </main>
   </div>
-
   <script src="js/app.js"></script>
 </body>
 </html>
