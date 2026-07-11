@@ -1,0 +1,34 @@
+SGDC LAYOUT MANAGER v0.1 — STARTING POINT
+
+PURPOSE
+Provide a safe visual starting point for arranging the locked SGDC presentation without editing HTML or CSS.
+
+INCLUDED
+• Five-column, two-row layout board
+• Drag-and-drop panel positioning
+• One- or two-column panel widths
+• One- or two-row panel heights
+• Panel visibility
+• Adjustable title color and size
+• Independent 2px top/right/bottom/left borders
+• Adjustable Parish Life slideshow width
+• Live display preview
+• Automatic browser-local saving
+• Layout JSON export/import
+• RC2 reset
+
+NOT INCLUDED YET
+• Server/cloud saving
+• Named layouts or screen profiles
+• Scheduling
+• Content editing
+• User accounts and permissions
+• Automatic collision resolution
+• Arbitrary row heights
+• Phone-specific layout editing
+
+OPEN
+https://YOUR-SITE/layout-manager.html
+
+The public display remains:
+https://YOUR-SITE/index.html

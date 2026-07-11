@@ -7,6 +7,40 @@
   const MOBILE_MAX = 900;
   const canvas = document.getElementById('canvas');
 
+
+  const LAYOUT_STORAGE_KEY = 'sgdc.layout.v0.1';
+
+  function applySavedLayout() {
+    let layout;
+    try { layout = JSON.parse(window.localStorage.getItem(LAYOUT_STORAGE_KEY)); }
+    catch (error) { layout = null; }
+    if (!layout || !Array.isArray(layout.modules)) return;
+
+    layout.modules.forEach(function (module) {
+      const panel = document.querySelector(module.selector);
+      if (!panel) return;
+
+      panel.style.display = module.visible === false ? 'none' : '';
+      panel.style.gridColumn = String(module.col || 1) + ' / span ' + String(module.colSpan || 1);
+      panel.style.gridRow = String(module.row || 1) + ' / span ' + String(module.rowSpan || 1);
+      panel.style.setProperty('--title-color', module.titleColor || '#d8b45c');
+      panel.style.setProperty('--title-size', String(module.titleSize || 32) + 'px');
+
+      const borders = module.borders || {};
+      panel.style.borderTop = borders.top ? '2px solid rgba(255,255,255,.70)' : '0';
+      panel.style.borderRight = borders.right ? '2px solid rgba(255,255,255,.70)' : '0';
+      panel.style.borderBottom = borders.bottom ? '2px solid rgba(255,255,255,.70)' : '0';
+      panel.style.borderLeft = borders.left ? '2px solid rgba(255,255,255,.70)' : '0';
+
+      if (module.id === 'slideshow' && module.contentWidth) {
+        const frame = panel.querySelector('.slide-frame');
+        const caption = panel.querySelector('.slide-caption');
+        if (frame) frame.style.width = String(module.contentWidth) + '%';
+        if (caption) caption.style.width = String(module.contentWidth) + '%';
+      }
+    });
+  }
+
   function scaleCanvas() {
     if (!canvas) return;
     const scale = Math.min(window.innerWidth / CANVAS_WIDTH, window.innerHeight / CANVAS_HEIGHT);
@@ -109,7 +143,13 @@
 
   window.addEventListener('resize', scaleCanvas);
   window.addEventListener('orientationchange', function () { window.setTimeout(scaleCanvas, 100); });
+  window.addEventListener('storage', function (event) { if (event.key === LAYOUT_STORAGE_KEY) applySavedLayout(); });
+  window.addEventListener('message', function (event) {
+    if (event.origin !== window.location.origin && event.origin !== 'null') return;
+    if (event.data && event.data.type === 'sgdc-layout-updated') applySavedLayout();
+  });
 
+  applySavedLayout();
   scaleCanvas();
   updateClock();
   duplicateForContinuousX();

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGDC Layout Manager v0.1</title>
+  <link rel="stylesheet" href="css/layout-manager.css" />
+</head>
+<body>
+  <header class="lm-header">
+    <div>
+      <p class="eyebrow">SGDC Administration</p>
+      <h1>Layout Manager <span>v0.1</span></h1>
+    </div>
+    <div class="header-actions">
+      <button id="resetBtn" class="secondary" type="button">Reset RC2</button>
+      <button id="exportBtn" class="secondary" type="button">Export JSON</button>
+      <label class="button secondary" for="importInput">Import JSON</label>
+      <input id="importInput" type="file" accept="application/json" hidden />
+      <a class="button primary" href="index.html" target="_blank" rel="noopener">Open Display</a>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="manager-pane">
+      <div class="section-heading">
+        <div>
+          <h2>Five-column canvas</h2>
+          <p>Drag a panel to a new open position. Select it to edit its appearance.</p>
+        </div>
+        <div id="saveStatus" class="save-status">Saved locally</div>
+      </div>
+
+      <div id="layoutBoard" class="layout-board" aria-label="Five-column layout canvas"></div>
+
+      <div class="editor-shell">
+        <aside class="module-list-wrap">
+          <h3>Panels</h3>
+          <div id="moduleList" class="module-list"></div>
+        </aside>
+
+        <section id="propertyEditor" class="property-editor" aria-live="polite">
+          <div class="empty-state">Select a panel to edit its settings.</div>
+        </section>
+      </div>
+    </section>
+
+    <section class="preview-pane">
+      <div class="section-heading compact">
+        <div>
+          <h2>Live preview</h2>
+          <p>Changes appear immediately and are saved in this browser.</p>
+        </div>
+        <button id="refreshPreviewBtn" class="secondary" type="button">Refresh preview</button>
+      </div>
+      <div class="preview-frame-wrap">
+        <iframe id="previewFrame" title="SGDC display preview" src="index.html?layoutPreview=1"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/layout-manager.js"></script>
+</body>
+</html>
